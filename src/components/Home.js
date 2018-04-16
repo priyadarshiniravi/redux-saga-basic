@@ -3,22 +3,16 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { request } from "../actions";
+import Person from "./Person";
 
 class Home extends React.Component {
     componentDidMount() {
         this.props.request();
     }
 
-    person = (x, i) =>
-        <div key={x.id.value}>
-            <h1>Profile Info</h1>
-            <p>
-                Gender: {x.gender}
-            </p>
-            <p>
-                Name: {x.name.first} {x.name.last}
-            </p>
-        </div>;
+    person(person) {
+        return(<Person person={person}/>);
+    }
 
     render() {
         let people = this.props.response.results;

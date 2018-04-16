@@ -4,7 +4,7 @@ import { REQUEST_CALL, receive } from "./actions";
 import {fetchData} from "./api"
 
 function* fetchApiData(action) {
-    try {//Make API Call here
+    try {
         const data = yield call(fetchData)
         yield put(receive(data));
     } catch (e) {
