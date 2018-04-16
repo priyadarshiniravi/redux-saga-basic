@@ -5,6 +5,7 @@ class Person extends React.Component {
         const person = this.props.person;
         return (<div key={person.id.value}>
             <h1>Profile Info</h1>
+            <img src={person.picture.medium} />
             <p>
                 Gender: {person.gender}
             </p>
