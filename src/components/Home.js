@@ -2,7 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { request } from "./actions";
+import { request } from "../actions";
 
 class Home extends React.Component {
     componentDidMount() {
