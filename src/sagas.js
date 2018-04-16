@@ -1,15 +1,18 @@
-import {put, takeLatest } from "redux-saga/effects";
+import {call, put, takeLatest } from "redux-saga/effects";
 
 import { REQUEST_CALL, receive } from "./actions";
+import {fetchData} from "./api"
 
-function* helloWorld(action) {
+function* fetchApiData(action) {
     try {//Make API Call here
-        yield put(receive("Hello world from redux saga!"));
+        const data = yield call(fetchData)
+        yield put(receive(data));
     } catch (e) {
+        console.log(e);
         yield put(receive("Something Went Wrong"));
     }
 }
 
 export default function* mySaga() {
-    yield takeLatest(REQUEST_CALL, helloWorld);
+    yield takeLatest(REQUEST_CALL, fetchApiData);
 }
